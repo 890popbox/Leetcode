@@ -5,7 +5,7 @@ These would probably be made with a LinkedList as you don't expect to use as muc
 """
 
 
-class Stack(object):
+class Stack1(object):
     # Keep track of the size and list
     def __init__(self):
         self.size = 0

@@ -48,7 +48,7 @@ class Tree(object):
                 tmp.right = Node(val)
             self.size += 1  # Keep track of tree size
 
-    # Deleting from the Tree
+    # Deleting from the Tree, (Not 100% Verified, but most edge cases were checked)
     def deleteNode(self, val):
         # If the root is empty nothing to delete
         if self.root is None:

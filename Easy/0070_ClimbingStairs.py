@@ -1,11 +1,11 @@
-def climbStairs(self, n):
+def climbStairs(n):
     # If there are no stairs, or one
     if n == 0 or n == 1:
         return 1
     # Otherwise there are stairs, let's count
     # We know you can just go up the stairs one step at a time so we start at one
     prev, curr = 1, 1
-    # Go until the range is met, we start at 2 becuase 0-2 is statified.
+    # Go until the range is met, we start at 2 because 0-2 is stratified.
     """
     So for example with 4; 2 goes until 5.. How it updates each time below
     #2 tmp = 1, curr = 2, prev = 1

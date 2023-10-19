@@ -1,4 +1,4 @@
-def isSameTree(p, q):
+def isSameTree(self, p, q):
     # Let's try this iteratively, we will use a stack to achieve this
     s = [p, q]
     while s:

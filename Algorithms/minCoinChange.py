@@ -1,22 +1,21 @@
-def minCoin(cents):
-    # Can't give change if not positive
-    if cents < 1:
-        return 0
-    # USD currency
-    coins = [25, 10, 5, 1]
-    minCoins = cents
-    tmpCents = cents
-    num_of_coins = 0
+# Function to give minimum amount of coins
+def minCoin(cents, coins):
+    # Change list, and init
+    change = [float('inf') for x in range(cents + 1)]
+    change[0] = 0
+    coins.sort()  # Make sure the coins are in ascending order
+    # Go through each coin in ascending order O(N * C)
+    # N is coins that give change, C will be the cents
     for coin in coins:
-        num_of_coins += tmpCents // coin
-        tmpCents = tmpCents % coin
-        if tmpCents == 0:
-            if num_of_coins < minCoins:
-                minCoins = num_of_coins
-            num_of_coins = 0
-            tmpCents = cents
-    return minCoins
+        for amount in range(0, len(change)):
+            # If the coin we are on is less than the amount, update it
+            if coin <= amount:
+                change[amount] = min(change[amount], 1+change[amount-coin])
+    return change[cents] if change[cents] != float('inf') else -1
 
-print(minCoin(22))
-print(minCoin(11))
-print(minCoin(57))
+# USD currency coins
+USCOINS = [25, 10, 5, 1]
+# Test the algorithm
+print(minCoin(22, USCOINS))
+print(minCoin(11, USCOINS))
+print(minCoin(57, USCOINS))

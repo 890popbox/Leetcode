@@ -1,12 +1,13 @@
 def longestPalindrome(s):
-    # Base check, if the solution is one or empty, must be that string, otherwise check
-    if len(s) <= 1:
+    # Save the size of the string, this may come in handy later
+    size = len(s)
+    # If the size is one or zero, return the string, it will be blank or equal to the first character
+    if size <= 1:
         return s
 
     # Function to help expand, and return the moment the string is not a Palindrome
     def expandPalindrome(l, r):
         # While the pointers haven't past each other
-        size = len(s)
         while l >= 0 and r < size:
             if s[l] != s[r]:
                 break

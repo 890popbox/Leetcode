@@ -10,10 +10,10 @@ def logMethod(target, base):
         start = 0
         end = 1
         mid = 0.5
-        # Precision check, loop can only go (prec you want)^2  before force escape.. otherwise it should be found when inside loop..
-        # Set this higher or greater depending on the application.. Another method would be to simply round..
-        # You could round that mx and target to (number_you_want, decimal_precision)..
-        # Whichever method you use, eventually there has to be a force escape as some logs have infinite decimals..
+        # Precision check, loop can only go (prec you want)^2  before force escape.. otherwise it should be found
+        # when inside loop.. Set this higher or greater depending on the application.. Another method would be to
+        # simply round.. You could round that mx and target to (number_you_want, decimal_precision).. Whichever
+        # method you use, eventually there has to be a force escape as some logs have infinite decimals..
         count = prec_ ** 2
         while count > 0:
             mx = (base_ ** mid)  # easy access

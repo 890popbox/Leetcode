@@ -17,4 +17,7 @@ def convertTime(self, current, correct):
             if tmp >= 0:
                 count += 1
                 betweenMinutes = tmp
+                # Early function return
+                if betweenMinutes == 0:
+                    return count
     return count

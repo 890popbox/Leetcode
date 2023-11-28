@@ -7,7 +7,6 @@ def convertTime(self, current, correct):
     # Store a count variable and times greatest to count how many operations may be preformed
     count = 0
     times = [60, 15, 5, 1]
-    print(betweenMinutes)
     # Go through each time and use it as an operation
     for time in times:
         # If the between time is greater than or equal we may use it

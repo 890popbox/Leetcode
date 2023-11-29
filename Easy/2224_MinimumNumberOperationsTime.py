@@ -1,4 +1,4 @@
-def convertTime(self, current, correct):
+def convertTime(current, correct):
     # Get the current and correct time in minutes
     currMinutes = (int(current[0:2]) * 60) + int(current[3:5])
     corrMinutes = (int(correct[0:2]) * 60) + int(correct[3:5])
@@ -9,15 +9,13 @@ def convertTime(self, current, correct):
     times = [60, 15, 5, 1]
     # Go through each time and use it as an operation
     for time in times:
-        # If the between time is greater than or equal we may use it
-        while betweenMinutes >= time:
-            tmp = betweenMinutes - time
-            # If tmp is greater than or equal to zero, we may consider this an operation
-            # We can not change betweenMinutes if tmp becomes negative
-            if tmp >= 0:
-                count += 1
-                betweenMinutes = tmp
-                # Early function return
-                if betweenMinutes == 0:
-                    return count
+        # The amount of valid operations that can be preformed with this time given
+        operations = betweenMinutes // time
+        # If it is above zero, it is one or more valid operations, adjust the distance and increase count
+        if operations > 0:
+            betweenMinutes -= (time * operations)
+            count += operations
+        # Once the distance between them are gone, exit early if possible
+        if betweenMinutes == 0:
+            return count
     return count

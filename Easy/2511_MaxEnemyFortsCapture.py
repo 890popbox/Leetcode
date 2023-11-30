@@ -8,10 +8,10 @@ def captureForts(forts):
         if forts[start] != 0 and forts[end] != 0 and forts[start] != forts[end]:
             output = max(output, end - start - 1)
         # If the spot we are viewing is not an enemy tower, it is either friendly or open
-        # Both have to be considered, if ever start==end the top statement just won't consider it vaible
+        # Both have to be considered, if ever start==end the top statement just won't consider it viable
         if forts[end] != 0:
             start = end
-    # This is similiar to marking friendly/empty towers, comparing distance between them
-    # And then reseting either the friendly or empty tower variable based off the tower we are viewing
+    # This is similar to marking friendly/empty towers, comparing distance between them
+    # And then resetting either the friendly or empty tower variable based off the tower we are viewing
     # This uses less variables and organizing comparisons into two simple ifs
     return output

@@ -9,4 +9,4 @@ def mergeAlternately(word1, word2):
             output.append(word2[i])
         i += 1
     # Create a string with the characters we store, O(N)
-    return "".join(output)
+    return ''.join(output)

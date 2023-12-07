@@ -1,7 +1,7 @@
-def mergeAlternately(word1, word2):
+def mergeAlternately(self, word1, word2):
     # Run this loop until i is greater than the largest word
     output, i = [], 0
-    while i < len(word1) or i < len(word2):
+    for i in range(max(len(word1), len(word2))):
         # Check word1 then word2 if not out of bounds
         if i < len(word1):
             output.append(word1[i])

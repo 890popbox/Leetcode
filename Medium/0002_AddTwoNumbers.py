@@ -1,4 +1,4 @@
-def addTwoNumbers(11, l2):
+def addTwoNumbers(self, l1, l2):
     # The list, head to keep track, and a carryFlag
     l3 = ListNode()
     head = l3
@@ -6,22 +6,28 @@ def addTwoNumbers(11, l2):
     # While one of the linkedlists holds true
     while l1 or l2:
         # Init both values to zero
-        val1, val2 = 0, 0
-        # Get the correct values, if that node exists or it stays zero
+        x = y = 0
+
+        # Move to the next nodes if available, and count their value
         if l1:
-            val1 = l1.val
+            x = l1.val
             l1 = l1.next
         if l2:
-            val2 = l2.val
+            y = l2.val
             l2 = l2.next
+
         # Count up the total, including carry, first time its blank, next could be
-        total = carry + val1 + val2
-        digit = total % 10
+        total = carry + x + y
         carry = total // 10
+
         # Pass the value to the next Node
-        l3.next = ListNode(digit)
+        l3.next = ListNode(total % 10)
         l3 = l3.next
+
     # If the carryFlag exists still, add it
     if carry:
         l3.next = ListNode(carry)
     return head.next
+
+# Init setting both values to zero, two operations can preform if that node exists rather than seperately
+# Including the carry in or won't compare until both lists are empty, but it will run through a few operations before adding the Node. We already have the carry so we can add it after.

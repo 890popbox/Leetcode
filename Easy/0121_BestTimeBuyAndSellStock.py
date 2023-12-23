@@ -1,13 +1,13 @@
 def maxProfit(self, prices):
     profit=0
     buy=prices[0]
-    # Start off assuming there is no profit and scan future sell prices comparing them with current buy price
+    # start off assuming there is no profit and scan future sell prices comparing them with current buy price
     for sell in prices[1:]:
-        # if the sell price is greater than the buy price calculate the profit
-        if sell > buy:
-            profit = max(profit, sell-buy)
-        # otherwise this means that day is lower than our current buy price, so update it
-        else:
+        # if selling on this day generates a higher profit, save that profit
+        if sell-buy > profit:
+            profit = sell-buy
+        # otherwise if our sell price is less than the price we have been buying for
+        elif sell < buy:
             buy = sell
     return profit
 # this works because all profit compared to the original buy day have been accounted for

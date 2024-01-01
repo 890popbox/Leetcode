@@ -7,11 +7,12 @@ def minCoin(cents, coins):
     # Go through each coin in ascending order O(N * C)
     # N is coins that give change, C will be the cents
     for coin in coins:
-        for amount in range(0, len(change)):
+        for amount in range(coin, len(change)):
             # If the coin we are on is less than the amount, update it
             if coin <= amount:
-                change[amount] = min(change[amount], 1+change[amount-coin])
+                change[amount] = min(change[amount], 1 + change[amount - coin])
     return change[cents] if change[cents] != float('inf') else -1
+
 
 # USD currency coins
 USCOINS = [25, 10, 5, 1]
@@ -19,3 +20,5 @@ USCOINS = [25, 10, 5, 1]
 print(minCoin(22, USCOINS))
 print(minCoin(11, USCOINS))
 print(minCoin(57, USCOINS))
+
+# See problem 322 inside medium folder for optimized concept

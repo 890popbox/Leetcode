@@ -5,7 +5,7 @@ def canJump(self, nums):
     index, last_index = 0, len(nums) - 1
     # index is able to reach maxJump or lower with current information given
     while index <= maxjump:
-        # If the max we can jump ever reachs or passes the last_index this is True
+        # If the max we can jump ever reaches or passes the last_index this is True
         if maxjump >= last_index: return True
         # The farthest place we can get to jumping from current index, update maxJump if its greater than current
         jump = index + nums[index]
